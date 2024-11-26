@@ -11,9 +11,10 @@ const NumberDisplay = () => {
     setLoading(true); // Start loading
     setError(null); // Reset error
     try {
-      const response = await axios.get("http://localhost:3001/api/number"); // API URL
+      const response = await axios.get("http://backend:8082/api/number"); // API URL
       setNumber(response.data.value); // Update number
     } catch (err) {
+      console.error(err);
       setError("Error fetching data. Please try again later.");
     } finally {
       // Wait 500ms before ending loading

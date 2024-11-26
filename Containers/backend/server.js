@@ -12,7 +12,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Connexion à MongoDB
-const mongoURI = "mongodb://localhost:27017/mathdb"; // Remplace par ton URI MongoDB si nécessaire
+const DBHOST = process.env.DB_HOST || "mongo";
+const mongoURI = "mongodb://" + DBHOST + ":27017/mathdb";
 mongoose
   .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB connecté !"))
@@ -22,5 +23,5 @@ mongoose
 app.use("/api/number", numberRoutes);
 
 // Lancer le serveur
-const PORT = 3001;
+const PORT = 8082;
 app.listen(PORT, () => console.log(`Serveur lancé sur le port ${PORT}`));

@@ -13,9 +13,7 @@ router.get("/", async (req, res) => {
     }
     res.status(200).json({ value: number.value });
   } catch (error) {
-    res
-      .status(500)
-      .json({ error: "Erreur lors de la récupération du nombre." });
+    res.status(500).json({ error: "Wrong operation" });
   }
 });
 

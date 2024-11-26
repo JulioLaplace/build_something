@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: operation-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: operation-service
+  template:
+    metadata:
+      labels:
+        app: operation-service
+    spec:
+      containers:
+        - name: operation-service
+          image: juliolt/operation_service:latest
+          ports:
+            - containerPort: 3001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: operation-service
+spec:
+  type: NodePort
+  selector:
+    app: operation-service
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8081
+      nodePort: 30081

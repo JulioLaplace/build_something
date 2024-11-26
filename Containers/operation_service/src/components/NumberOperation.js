@@ -12,7 +12,7 @@ const NumberOperation = () => {
     try {
       // Send a POST request to the backend
       const response = await axios.post(
-        "http://localhost:3001/api/number/update",
+        "http://backend:8082/api/number/update",
         {
           operation: operation,
         }
@@ -25,7 +25,7 @@ const NumberOperation = () => {
       // Reset the operation input
       setOperation("");
     } catch (err) {
-      setError("Erreur lors de l'exécution de l'opération.");
+      setError("Wrong operation");
       setResult(null);
     }
   };

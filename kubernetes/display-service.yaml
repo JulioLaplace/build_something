@@ -23,11 +23,12 @@ kind: Service
 metadata:
   name: display-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: display-service
   ports:
     - name: http
       protocol: TCP
+      targetPort: 3000
       port: 8080
       nodePort: 30080

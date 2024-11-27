@@ -10,15 +10,15 @@ const NumberDisplay = () => {
   const fetchNumber = async () => {
     setLoading(true); // Start loading
     setError(null); // Reset error
+    console.log("Trying to get the number");
     try {
-      const response = await axios.get("http://backend:8082/api/number"); // API URL
+      const response = await axios.get("http://localhost:8082/api/number"); // API URL
       setNumber(response.data.value); // Update number
     } catch (err) {
       console.error(err);
       setError("Error fetching data. Please try again later.");
     } finally {
-      // Wait 500ms before ending loading
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       setLoading(false); // End loading
     }
   };

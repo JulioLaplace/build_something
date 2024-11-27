@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
-// Définir le schéma du nombre
+// Number Schema
 const numberSchema = new mongoose.Schema({
   value: { type: Number, required: true, default: 0 },
 });
 
-// Exporter le modèle
+// Number Model
 module.exports = mongoose.model("Number", numberSchema);

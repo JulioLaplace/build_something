@@ -12,15 +12,11 @@ const NumberOperation = () => {
     try {
       // Send a POST request to the backend
       const response = await axios.post(
-        "http://backend:8082/api/number/update",
+        "http://localhost:8082/api/number/update",
         {
           operation: operation,
         }
       );
-
-      // Update the result and reset the error if there is one
-      //   setResult(response.data.value);
-      //   setError(null);
 
       // Reset the operation input
       setOperation("");
@@ -47,12 +43,6 @@ const NumberOperation = () => {
         </div>
         <button type="submit">Perform</button>
       </form>
-
-      {/* {result !== null && (
-        <div>
-          <h2>Résultat : {result}</h2>
-        </div>
-      )} */}
 
       {error && <p style={{ color: "red" }}>{error}</p>}
     </div>

@@ -16,17 +16,17 @@ spec:
         - name: backend
           image: juliolt/backend:latest
           ports:
-            - containerPort: 4000
+            - containerPort: 8082
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: backend
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: backend
   ports:
     - protocol: TCP
-      port: 4000
-      targetPort: 4000
+      port: 8082
+      targetPort: 8082

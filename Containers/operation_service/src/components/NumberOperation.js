@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./NumberOperation.css";
 
 const NumberOperation = () => {
   const [operation, setOperation] = useState("");
@@ -41,7 +42,9 @@ const NumberOperation = () => {
             required
           />
         </div>
-        <button type="submit">Perform</button>
+        <button class="button-28" role="button" type="submit">
+          Perform
+        </button>
       </form>
 
       {error && <p style={{ color: "red" }}>{error}</p>}

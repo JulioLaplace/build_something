@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Counter from "./Counter";
+import "./NumberDisplay.css";
 
 const NumberDisplay = () => {
   const [number, setNumber] = useState(null);
@@ -29,18 +31,13 @@ const NumberDisplay = () => {
 
   return (
     <div>
-      <h2>Current number :</h2>
-      {loading ? (
-        <p>Loading...</p>
-      ) : error ? (
+      <h2>Current number</h2>
+      {error ? (
         <p style={{ color: "red" }}>{error}</p>
       ) : (
-        <p style={{ fontSize: "2rem", fontWeight: "bold" }}>{number}</p>
+        <Counter number={number} />
       )}
-      <button
-        onClick={fetchNumber}
-        style={{ padding: "10px 20px", fontSize: "1rem" }}
-      >
+      <button onClick={fetchNumber} class="button-28" role="button">
         Actualize
       </button>
     </div>

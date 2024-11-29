@@ -9,7 +9,7 @@
                   v
        +---------------------+
        | Backend REST API    |
-       | (FastAPI/Express)   |
+       | (Express)           |
        +---------------------+
                   |
                   v
@@ -17,3 +17,6 @@
         | PostgreSQL DB     |
         | (Mongo DB)        |
         +-------------------+
+
+
+
